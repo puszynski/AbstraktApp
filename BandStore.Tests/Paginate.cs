@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using AbstraktApp.Domain.Abstract;
 using AbstraktApp.Domain.Entities;
 using AbstraktApp.WebUI.Controllers;
 using BandStore.Controllers;
+using BandStore.HtmlHelpers;
+using BandStore.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -44,6 +47,34 @@ namespace BandStore.Tests
             Assert.IsTrue(prodArray.Length == 2);
             Assert.AreEqual(prodArray[0].Name, "P4");
             Assert.AreEqual(prodArray[1].Name, "P5");
+        }
+
+        /// <summary>
+        /// Sprawdza poprawność ręcznie dodanej metody pomocniczej Html obsługującej ViewModel: PagingHelpers
+        /// </summary>
+        [TestMethod]
+        public void Can_Generate_Page_Links()
+        {
+            // Arrange
+            // definiowanie metody pomocnicznej - potrzebne aby użyć metody rozszeżajacej:
+            HtmlHelper myHelper = null;
+
+            // Act - data
+            PagingInfoViewModel paginginfo = new PagingInfoViewModel
+            {
+                CurrentPage = 2,
+                TotalItems = 28,
+                ItemsPerPage = 10
+            };
+            // Act - delegate
+            Func<int, string> pageUrlDelegate = i => "Strona" + i;
+            // Act
+            MvcHtmlString result = myHelper.PageLinks(paginginfo, pageUrlDelegate);
+
+            // Assert
+            Assert.AreEqual(result.ToString(), @"<a href=""Strona1"">1</a>"
++ @"<a class=""selected""href=""Strona2"">2</a>"
++ @"<a class=""Strona3"">3</a>");
         }
     }
 }
