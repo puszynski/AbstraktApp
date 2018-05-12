@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AbstraktApp.Domain.Entities.Product>
+
+@{
+    ViewBag.Title = "Produkty";
+}
+
+@foreach (var item in Model)
+{
+    <div class="item">
+        <h3>@item.Name</h3>
+        @item.Description
+        <h4>@item.Price.ToString("c")</h4>
+    </div>
+}
+

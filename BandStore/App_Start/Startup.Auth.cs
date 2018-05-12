@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using BandStore.Models;
+using AbstraktApp.WebUI.Models;
 
-namespace BandStore
+namespace AbstraktApp
 {
     public partial class Startup
     {

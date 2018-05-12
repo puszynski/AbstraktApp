@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(BandStore.Startup))]
-namespace BandStore
+[assembly: OwinStartupAttribute(typeof(AbstraktApp.Startup))]
+namespace AbstraktApp
 {
     public partial class Startup
     {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace BandStore
+namespace AbstraktApp
 {
     public class RouteConfig
     {
@@ -13,10 +13,12 @@ namespace BandStore
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // gdzie id to argument przekazywany metodzie(akcji)
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                // defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "NewProduct", action = "List", id = UrlParameter.Optional }
             );
         }
     }

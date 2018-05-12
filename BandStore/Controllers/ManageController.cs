@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using BandStore.Models;
+using AbstraktApp.WebUI.Models;
 
-namespace BandStore.Controllers
+namespace AbstraktApp.WebUI.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BandStore.Models
+namespace AbstraktApp.WebUI.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

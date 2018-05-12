@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace BandStore.Controllers
+namespace AbstraktApp.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -22,7 +18,16 @@ namespace BandStore.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Having trouble? Send us a message.";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(string msg)
+        {
+            //TODO : send message to HQ
+            ViewBag.Message = "Thanks, we got your message.";
 
             return View();
         }

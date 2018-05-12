@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using BandStore.Models;
+using AbstraktApp.WebUI.Models;
 
-namespace BandStore
+namespace AbstraktApp
 {
     public class EmailService : IIdentityMessageService
     {

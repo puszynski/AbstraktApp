@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace BandStore.Models
+namespace AbstraktApp.WebUI.Models
 {
     public class IndexViewModel
     {

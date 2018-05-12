@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace BandStore
+namespace AbstraktApp
 {
     public class BundleConfig
     {

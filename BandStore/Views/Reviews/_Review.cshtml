@@ -1,0 +1,27 @@
+﻿@model IEnumerable<AbstraktApp.WebUI.Models.Review>
+
+
+<ul>
+
+    @foreach (var item in Model)
+    {
+
+        <li>
+            <h4>@item.Rating / 10</h4>
+            <p>@Html.DisplayFor(modelItem => item.Comment)</p>
+
+            @if (!(item.Author == null))
+            {
+                <p>author: @item.Author</p>
+            }
+
+            @if (User != null && User.Identity != null && item.Author == User.Identity.Name)
+            {
+                <p><small>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</small></p> @*Nowo stworzony parametr id zostanie przekazany do Kontrolera*@
+            }
+
+
+        </li>
+
+    }
+</ul>
