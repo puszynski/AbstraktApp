@@ -1,0 +1,21 @@
+﻿@model IEnumerable<string>
+
+@*Link do głównego kontrolera:*@
+@Html.ActionLink("Wszystkie", "List", "NewProduct")
+
+@foreach (var item in Model)
+{
+    @Html.RouteLink(item,
+            new
+            {
+                controller = "NewProduct",
+                action = "List",
+                category = item,
+                Page = 1
+            },
+        new
+            {
+                @class = item == ViewBag.SelectedCategory ? "selected" : null
+            }
+        )
+}

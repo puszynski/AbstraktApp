@@ -34,3 +34,130 @@ textarea {
     color: red;
 }
 
+/*JP own Add - Categories/MainContant section*/
+div #content {
+    border-left: 2px solid gray;
+    margin-left: 9em;
+    padding: 1em;
+}
+
+div #categories {
+    float: left;
+    width: 8em;
+    padding: .3em;
+}
+
+div .item {
+    border-top: 1px dotted gray;
+    padding-top: .7em;
+    margin-bottom: .7em;
+}
+
+div .item .first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+div .item H3 {
+    font-size: 1.3em;
+    margin: 0 0 .25em 0;
+    font-weight: bold;
+}
+
+div .item H4 {
+    font-size: 1.1em;
+    margin: .4em 0 0 0;
+    font-weight: bold;
+}
+
+div .pager {
+    text-align: right;
+    border-top: 2px solid silver;
+    padding: .5em 0 0 0;
+    margin-top: 1em;
+}
+
+div .pager a {
+    font-size: 1.1em;
+    color: #666;
+    text-decoration: none;
+    padding: 0 .4em 0 .4em;
+}
+
+div .pager a:hover {
+    background-color: Silver;
+}
+
+div .pager a.selected {
+    background-color: #353535;
+    color: white;
+}
+
+/*JP css for category submenu*/
+div #categories a {
+    display: block;
+    text-decoration: none;
+    padding: .6em;
+    color: black;
+}
+
+    div #categories a.selected {
+        background-color: #666;
+        color: white;
+    }
+
+div #categories a:hover {
+    background-color: #CCC;
+}
+
+    div #categories a.selected:hover {
+        background-color: #666;
+    }
+
+/*JP formularz dodawania do koszyka*/
+form {
+    margin: 0;
+    padding: 0;
+}
+
+div .item form {
+    float:right;
+}
+
+div .item input {
+    color:white;
+    background-color: #333;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/*Zawartość koszyka*/
+tfoot td {
+    border-top: 1px dotted gray;
+    font-weight: bold;
+}
+
+.actionButtons a,
+input .actionButtons {
+    text-decoration: none;
+    padding: .15em 1.5em .2em 1.5em;
+    background-color: #353535;
+    border: 1px solid black;
+}
+
+/*element podsumowujący jaka jest wartość koszyka + opcja zamów aby przejść do koszyka*/
+#cart {
+    width: 100%;
+    padding: 10px;
+    text-align: right;
+    background-color: silver;
+}
+
+div #cart a {
+    padding: .4em 1em .4em 1em;
+    line-height: 2.1em;
+    margin-left: .5em;
+    background-color: #333;
+    color: white;
+    border: 1px solid black;
+}

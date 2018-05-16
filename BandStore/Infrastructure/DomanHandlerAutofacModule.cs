@@ -29,6 +29,10 @@ namespace BandStore.Infrastructure
             // Add Bindings here:            
             builder.RegisterType<EFProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
 
+            // TODO - str 244 - wstrzyknięcie argumentu do ctor + ..
+            builder.RegisterType<EmailOrderProcessor>().As<IOrderProcessor>()
+                .WithParameter("settings", new EmailSettings());
+
             //builder.RegisterInstance(mock.Object).As<IProductRepository>(); // <= odwołujemy się do imitacji repozytorium Moq
 
             base.Load(builder);

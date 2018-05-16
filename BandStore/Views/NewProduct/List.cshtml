@@ -1,15 +1,27 @@
-﻿@model IEnumerable<AbstraktApp.Domain.Entities.Product>
+﻿@model AbstraktApp.WebUI.Models.ProductsListViewModel
 
 @{
     ViewBag.Title = "Produkty";
 }
 
-@foreach (var item in Model)
-{
-    <div class="item">
-        <h3>@item.Name</h3>
-        @item.Description
-        <h4>@item.Price.ToString("c")</h4>
-    </div>
-}
 
+<div class="JPOwnAdd">
+    <div id="header">
+        @{Html.RenderAction("Summary", "Cart");}
+    </div>
+    <div id="categories">
+        @{ Html.RenderAction("Menu", "Nav"); }  
+    </div>
+    <div id="content">
+
+
+        @foreach (var item in Model.Products)
+        {
+            Html.RenderPartial("ProductSummary", item);
+        }
+
+        <div class="pager">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+        </div>
+    </div>
+</div>

@@ -1,36 +1,42 @@
 ﻿using AbstraktApp.Domain.Abstract;
-using BandStore.Models;
-using System;
-using System.Collections.Generic;
+using AbstraktApp.WebUI.Models;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace BandStore.Controllers
+namespace AbstraktApp.WebUI.Controllers
 {
     public class NewProductController : Controller
     {
         private IProductRepository repository;
-        public int PageSize = 4; // stronnicowanie(ilość wyświetlanych produktów)
+        public int PageSize = 6; // stronnicowanie(ilość wyświetlanych produktów)
 
         public NewProductController(IProductRepository productRepository)
         {
-            repository = productRepository;
-            
+            repository = productRepository;            
         }
 
         // GET: NewProduct
-        public ViewResult List(int page = 1) // = 1 określa nam wartość default, nie musimy podawać parametru strony a i tak wyświetli pierwszy
+        public ViewResult List(string category, int page = 1) // = 1 określa nam wartość default, nie musimy podawać parametru strony a i tak wyświetli pierwszy
         {
             ProductsListViewModel viewModel = new ProductsListViewModel
             {
                 Products = repository.Products
-                .OrderBy
-            }
+                .Where(p => category == null || p.Category == category)
+                .OrderBy(p => p.ProductID)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfoViewModel
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = category == null ? 
+                    repository.Products.Count() :
+                    repository.Products.Where(e => e.Category == category).Count()
+                },
+                CurrentCategory = category
+            };
 
-
-            return View(repository.Products
-                .OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize)); // stronnicowanie
+            return View(viewModel);
         }
     }
 }

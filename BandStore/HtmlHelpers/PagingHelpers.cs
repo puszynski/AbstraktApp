@@ -1,4 +1,4 @@
-﻿using BandStore.Models;
+﻿using AbstraktApp.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BandStore.HtmlHelpers
+namespace AbstraktApp.WebUI.HtmlHelpers
 {
     /// <summary>
     /// Własna metoda pomocnicza HTML odnosząca się do ViewModelu PagignInfoViewModel

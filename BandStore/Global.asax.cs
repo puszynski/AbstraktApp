@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using AbstraktApp.Domain.Entities;
+using AbstraktApp.WebUI.Binders;
+using Autofac;
 using Autofac.Integration.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -17,6 +19,9 @@ namespace AbstraktApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Inforumjemy MVC aby przy tworzeniu obiektów Cart na podstawie danych sesji użyto naszego łącznika CartModelBinder
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
 
 

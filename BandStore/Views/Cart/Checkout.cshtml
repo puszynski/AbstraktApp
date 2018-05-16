@@ -1,0 +1,36 @@
+﻿@model AbstraktApp.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "Abstrakt store: wysyłka";
+}
+
+<h2>Wysyłka</h2>
+Proszę podać swoje dane, a towar zostanie natychmiast wysłany!
+
+@using (Html.BeginForm())
+{
+    //wyświtla komunikaty o niepoprawnym wypełnieniu zamówienia/pustym koszyku
+    @Html.ValidationSummary()
+
+    <h3>Wysyłka dla:</h3>
+    <div>Imie i nazwisko: @Html.EditorFor(x => x.Name)</div>
+
+    <h3>Adres</h3>
+    <div>Wiersz 1: @Html.EditorFor(x => x.Line1)</div>
+    <div>Wiersz 2: @Html.EditorFor(x => x.Line2)</div>
+    <div>Wiersz 3: @Html.EditorFor(x => x.Line3)</div>
+    <div>Miasto: @Html.EditorFor(x => x.City)</div>
+    <div>Kraj: @Html.EditorFor(x => x.Country)</div>
+    <div>Województwo: @Html.EditorFor(x => x.State)</div>
+    <div>Kod-pocztowy: @Html.EditorFor(x => x.Zip)</div>
+
+    <h3>Opcje</h3>
+    <label>
+        @Html.EditorFor(x => x.GiftWrap)
+        Pakowanie prezentu
+    </label>
+
+    <p align="center">
+        <input class="actionButtons" type="submit" value="Zakończ zamówienie" />
+    </p>
+}
